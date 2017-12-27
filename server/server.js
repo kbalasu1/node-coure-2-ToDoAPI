@@ -9,6 +9,8 @@ var {Todo} = require('./models/todo');
 
 
 var app = express();
+var port = process.env.PORT || 3000;
+
 app.use(bodyParser.json())
 
 app.post('/todos', (req,res) => {
@@ -22,8 +24,8 @@ app.post('/todos', (req,res) => {
         res.status(400).send(err);
     })
 })
-app.listen(3000, () => {
-    console.log('started on port 3000');
+app.listen(port, () => {
+    console.log(`started on port ${port}`);
 });
 
 app.get('/todos', (req,res) => {
